@@ -11,7 +11,7 @@
         android:id="@+id/ImageTgt"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="fitStart"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/BottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,7 +23,7 @@
         android:id="@+id/WkLayout"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="70dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/BottomLayout"
         app:layout_constraintEnd_toStartOf="@+id/LoveLayout"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/AnchorLayout">
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/ImageWk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/wk_modified" />
@@ -43,13 +43,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:translationY="50dp"
         app:layout_constraintBottom_toTopOf="@+id/BottomLayout"
         app:layout_constraintEnd_toStartOf="@+id/YlLayout"
         app:layout_constraintStart_toEndOf="@+id/WkLayout"
         app:layout_constraintTop_toBottomOf="@+id/AnchorLayout">
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/ImageLove"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/_3" />
@@ -59,7 +60,7 @@
         android:id="@+id/YlLayout"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="70dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/BottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/AnchorLayout">
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/ImageYl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/yl_modified" />
@@ -75,31 +76,60 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/WkTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:text="小小粒 / 铃铃"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/YlLayout"
         app:layout_constraintStart_toStartOf="@+id/YlLayout"
         app:layout_constraintTop_toBottomOf="@+id/YlLayout" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/YlTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:text="怪叔叔 / 慨慨 "
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/WkLayout"
         app:layout_constraintStart_toStartOf="@+id/WkLayout"
         app:layout_constraintTop_toBottomOf="@+id/WkLayout" />
 
+    <TextView
+        android:id="@+id/TgtTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="我们在一起"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/WkTxt"
+        app:layout_constraintStart_toEndOf="@+id/YlTxt"
+        app:layout_constraintTop_toBottomOf="@id/LoveLayout" />
+
+    <TextView
+        android:id="@+id/TxtDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Days"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/TgtTxt"
+        app:layout_constraintStart_toStartOf="@+id/TgtTxt"
+        app:layout_constraintTop_toBottomOf="@+id/TgtTxt" />
+
     <LinearLayout
         android:id="@+id/AnchorLayout"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/BottomLayout"
         app:layout_constraintEnd_toEndOf="@+id/ImageTgt"
@@ -109,9 +139,8 @@
     <LinearLayout
         android:id="@+id/BottomLayout"
         android:layout_width="0dp"
-        android:layout_height="230dp"
+        android:layout_height="250dp"
         android:orientation="vertical"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
