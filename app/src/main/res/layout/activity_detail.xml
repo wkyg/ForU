@@ -4,48 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".DetailActivity">
 
     <ImageView
         android:id="@+id/ImageTgt"
-        android:layout_width="550dp"
-        android:layout_height="550dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitStart"
+        app:layout_constraintBottom_toTopOf="@+id/BottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tgt" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="135dp"
-        android:layout_height="135dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+    <LinearLayout
+        android:id="@+id/WkLayout"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="50dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/BottomLayout"
+        app:layout_constraintEnd_toStartOf="@+id/LoveLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"
-        app:srcCompat="@drawable/wk" />
+        app:layout_constraintTop_toBottomOf="@+id/AnchorLayout">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="135dp"
-        android:layout_height="135dp"
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/wk_modified" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LoveLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/BottomLayout"
+        app:layout_constraintEnd_toStartOf="@+id/YlLayout"
+        app:layout_constraintStart_toEndOf="@+id/WkLayout"
+        app:layout_constraintTop_toBottomOf="@+id/AnchorLayout">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/_3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/YlLayout"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="50dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/BottomLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/LoveLayout"
+        app:layout_constraintTop_toBottomOf="@+id/AnchorLayout">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/yl_modified" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="小小粒 / 铃铃"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/YlLayout"
+        app:layout_constraintStart_toStartOf="@+id/YlLayout"
+        app:layout_constraintTop_toBottomOf="@+id/YlLayout" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="怪叔叔 / 慨慨 "
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/WkLayout"
+        app:layout_constraintStart_toStartOf="@+id/WkLayout"
+        app:layout_constraintTop_toBottomOf="@+id/WkLayout" />
+
+    <LinearLayout
+        android:id="@+id/AnchorLayout"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/BottomLayout"
+        app:layout_constraintEnd_toEndOf="@+id/ImageTgt"
+        app:layout_constraintStart_toStartOf="@+id/ImageTgt"
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/BottomLayout"
+        android:layout_width="0dp"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/ImageTgt"
-        app:layout_constraintVertical_bias="0.8"
-        app:srcCompat="@drawable/yl" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageTgt">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/ImageTgt"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/_3" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
