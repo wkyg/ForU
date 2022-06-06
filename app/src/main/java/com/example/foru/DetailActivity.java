@@ -21,6 +21,7 @@ public class DetailActivity extends AppCompatActivity {
     public final String StartDate = "17/05/2022";
     public String CurrentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
     public String DiffDate;
+    public String LoveEmoji;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,19 @@ public class DetailActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_detail);
         getSupportActionBar().hide();
+
+        //get emoji
+        LoveEmoji = getEmojiByUnicode(0x2764);
+
+        //Set Texts
+        TextView kk = findViewById(R.id.WkTxt);
+        kk.setText("怪叔叔 / 慨慨" + LoveEmoji);
+
+        TextView yl = findViewById(R.id.YlTxt);
+        yl.setText("小小粒 / 铃铃" + LoveEmoji);
+
+        TextView tgt = findViewById(R.id.TgtTxt);
+        tgt.setText("我们在一起");
 
         //Date calculations
         try{
@@ -47,5 +61,9 @@ public class DetailActivity extends AppCompatActivity {
             TextView TxtDays = findViewById(R.id.TxtDays);
             TxtDays.setText("Please contact ur bf for help");
         }
+    }
+
+    public String getEmojiByUnicode(int unicode){
+        return new String(Character.toChars(unicode));
     }
 }

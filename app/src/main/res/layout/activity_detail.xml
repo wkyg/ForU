@@ -77,11 +77,10 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/WkTxt"
+        android:id="@+id/YlTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="小小粒 / 铃铃"
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/YlLayout"
@@ -89,11 +88,10 @@
         app:layout_constraintTop_toBottomOf="@+id/YlLayout" />
 
     <TextView
-        android:id="@+id/YlTxt"
+        android:id="@+id/WkTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="怪叔叔 / 慨慨 "
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/WkLayout"
@@ -105,12 +103,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="我们在一起"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/WkTxt"
-        app:layout_constraintStart_toEndOf="@+id/YlTxt"
+        app:layout_constraintEnd_toStartOf="@+id/YlTxt"
+        app:layout_constraintStart_toEndOf="@+id/WkTxt"
         app:layout_constraintTop_toBottomOf="@id/LoveLayout" />
 
     <TextView
@@ -118,7 +115,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="Days"
         android:textColor="@color/black"
         android:textSize="34sp"
         android:textStyle="bold"
