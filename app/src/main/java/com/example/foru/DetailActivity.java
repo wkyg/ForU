@@ -2,9 +2,12 @@ package com.example.foru;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.protobuf.StringValue;
@@ -15,6 +18,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -34,16 +38,33 @@ public class DetailActivity extends AppCompatActivity {
 
         //get emoji
         LoveEmoji = getEmojiByUnicode(0x2764);
-
+        //Get random image
+        Random rand = new Random();
+        //total number of pictures 0-x
+        int upperbound = 13;
+        int randInt = rand.nextInt(upperbound);
+        String uri = "@drawable/tgt"+randInt;
+        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+        Drawable res = getResources().getDrawable(imageResource);
         //Set Texts
         TextView kk = findViewById(R.id.WkTxt);
         kk.setText("怪叔叔 / 慨慨" + LoveEmoji);
-
+        //Set Texts
         TextView yl = findViewById(R.id.YlTxt);
         yl.setText("小小粒 / 铃铃" + LoveEmoji);
-
+        //Set Texts
         TextView tgt = findViewById(R.id.TgtTxt);
         tgt.setText("我们在一起");
+        //Set Image
+        ImageView img = findViewById(R.id.ImageTgt);
+        img.setImageDrawable(res);
+        //On click change picture (seek)
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         //Date calculations
         try{
