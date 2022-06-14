@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
     public String CurrentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
     public String DiffDate;
     public String LoveEmoji;
-    public int upperbound = 13;
+    public int upperbound = 15; //total number of photos + 1
     public int randInt;
     public int imageResource;
     public String uri;
@@ -45,7 +45,7 @@ public class DetailActivity extends AppCompatActivity {
         //get emoji
         LoveEmoji = getEmojiByUnicode(0x2764);
 
-        //Get random image //total number of pictures 0-x
+        //Get random image
         Random rand = new Random();
         randInt = rand.nextInt(upperbound);
         uri = "@drawable/tgt"+randInt;
@@ -70,7 +70,7 @@ public class DetailActivity extends AppCompatActivity {
 
         //On click change picture (seek)
         img.setOnClickListener(v -> {
-            if (randInt >= 12){
+            if (randInt >= 14){ //change here also eh bodoh
                 randInt = 0;
             }else{
                 randInt++;
@@ -81,6 +81,7 @@ public class DetailActivity extends AppCompatActivity {
             Drawable newRes = getDrawable(imageResource);
             ImageView img1 = findViewById(R.id.ImageTgt);
             img1.setImageDrawable(newRes);
+            Toast.makeText(this, uri, Toast.LENGTH_SHORT).show();
         });
 
         //Date calculations
