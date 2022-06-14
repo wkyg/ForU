@@ -81,7 +81,7 @@ public class DetailActivity extends AppCompatActivity {
             Drawable newRes = getDrawable(imageResource);
             ImageView img1 = findViewById(R.id.ImageTgt);
             img1.setImageDrawable(newRes);
-            Toast.makeText(this, uri, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, uri, Toast.LENGTH_SHORT).show();
         });
 
         //Date calculations
