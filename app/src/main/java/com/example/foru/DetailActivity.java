@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
     public String CurrentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
     public String DiffDate;
     public String LoveEmoji;
-    public int upperbound = 30; //total number of photos + 1
+    public int upperbound = 48; //total number of photos + 1
     public int randInt;
     public int imageResource;
     public String uri;
@@ -70,7 +70,7 @@ public class DetailActivity extends AppCompatActivity {
 
         //On click change picture (seek)
         img.setOnClickListener(v -> {
-            if (randInt >= 29){ //change here also eh bodoh
+            if (randInt >= 47){ //change here also eh bodoh
                 randInt = 0;
             }else{
                 randInt++;
