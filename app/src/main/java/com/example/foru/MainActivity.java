@@ -1,12 +1,9 @@
 package com.example.foru;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -26,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                //Code for test another activity pages.
                 finish();
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 startActivity(intent);
