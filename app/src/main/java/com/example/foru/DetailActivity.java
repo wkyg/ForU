@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Random;
 
 public class DetailActivity extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class DetailActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_detail);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         //get emoji
         LoveEmoji = getEmojiByUnicode(0x2764);
@@ -78,16 +79,15 @@ public class DetailActivity extends AppCompatActivity {
             imageView.setImageDrawable(newRes);
         });
 
-        ImageView ImageLove = findViewById(R.id.ImageLove);
         //On Click love logo
-        ImageLove.setOnClickListener(v -> Toast.makeText(this, "17号5月2022年 是我们在一起的第一天" + FeelingLoveEmoji, Toast.LENGTH_SHORT).show());
-
-        ImageView ImageWk = findViewById(R.id.ImageWk);
+        ImageView ImageLove = findViewById(R.id.ImageLove);
+        ImageLove.setOnClickListener(v -> Toast.makeText(this, "5月17号2022年 是我们在一起的第一天" + FeelingLoveEmoji, Toast.LENGTH_SHORT).show());
         //On click wk picture
-        ImageWk.setOnClickListener(v -> Toast.makeText(this, "6号10月2019年 是我们认识的第一天" + HeheFaceEmoji, Toast.LENGTH_SHORT).show());
-        ImageView ImageYl = findViewById(R.id.ImageYl);
+        ImageView ImageWk = findViewById(R.id.ImageWk);
+        ImageWk.setOnClickListener(v -> Toast.makeText(this, "10月6号2019年 是我们认识的第一天" + HeheFaceEmoji, Toast.LENGTH_SHORT).show());
         //On click yl picture
-        ImageYl.setOnClickListener(v -> Toast.makeText(this, "6号10月2019年 是我们认识的第一天" + HeheFaceEmoji, Toast.LENGTH_SHORT).show());
+        ImageView ImageYl = findViewById(R.id.ImageYl);
+        ImageYl.setOnClickListener(v -> Toast.makeText(this, "10月6号2019年 是我们认识的第一天" + HeheFaceEmoji, Toast.LENGTH_SHORT).show());
 
         //Date calculations
         try{
@@ -110,6 +110,8 @@ public class DetailActivity extends AppCompatActivity {
 
             //conditional set Gif and toast on day 100
             if(differenceDates == 100){
+                TxtDays.setText(LoveEmoji + DiffDate + " days" + LoveEmoji);
+
                 Toast.makeText(this, "我们在一起" + DiffDate + "天啦！！" + LoveEyesEmoji, Toast.LENGTH_LONG).show();
 
                 ImageView imageGif = findViewById(R.id.ImageGif);
