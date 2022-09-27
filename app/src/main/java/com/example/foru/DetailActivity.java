@@ -1,6 +1,10 @@
 package com.example.foru;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Window;
@@ -9,6 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -29,6 +41,10 @@ public class DetailActivity extends AppCompatActivity {
     public int imageResource;
     public String uri;
 
+    //Testing for firebase
+    public StorageReference storageReference;
+    //Testing for firebase
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +53,32 @@ public class DetailActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_detail);
         Objects.requireNonNull(getSupportActionBar()).hide();
+
+        //Testing for firebase
+        storageReference = FirebaseStorage.getInstance().getReference().child("Uploads/tgt0.jpg");
+
+        try{
+            final File localFile = File.createTempFile("tgt0", "jpg");
+            storageReference.getFile(localFile)
+                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(DetailActivity.this, "Picture Retrieved", Toast.LENGTH_SHORT).show();
+                            Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                            ImageView ImageTgt = findViewById(R.id.ImageTgt);
+                            ImageTgt.setImageBitmap(bitmap);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(DetailActivity.this, "Picture failed to retrieve", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        //Testing for firebase
+
 
         //get emoji
         LoveEmoji = getEmojiByUnicode(0x2764);
@@ -61,7 +103,7 @@ public class DetailActivity extends AppCompatActivity {
 
         //Set Image
         ImageView ImageTgt = findViewById(R.id.ImageTgt);
-        ImageTgt.setImageDrawable(res);
+        //ImageTgt.setImageDrawable(res);
 
         //On click change picture (seek)
         ImageTgt.setOnClickListener(v -> {

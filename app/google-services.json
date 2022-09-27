@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1037998089627",
+    "project_id": "foru-e5181",
+    "storage_bucket": "foru-e5181.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037998089627:android:0cb71acb726ceee752ad3e",
+        "android_client_info": {
+          "package_name": "com.example.foru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1037998089627-p33q8sia4gvo01iks2sb5dt0dbfqagab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTxy2zVNcPFJ3xM3qLJhlu5-alYVETuj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037998089627-p33q8sia4gvo01iks2sb5dt0dbfqagab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
