@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
@@ -18,7 +19,7 @@ import java.util.Random;
 public class DetailActivity extends AppCompatActivity {
 
     public final String StartDate = "17/05/2022"; //17/05/2022
-    public final int upperbound = 55; //total number of photos including 0
+    public final int upperbound = 107; //total number of photos including 0
     public String CurrentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
     public String DiffDate;
     public String LoveEmoji;
@@ -28,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
     public int randInt;
     public int imageResource;
     public String uri;
+    public ArrayList<Long> hundreds = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,7 @@ public class DetailActivity extends AppCompatActivity {
         //On click change picture (seek)
         ImageTgt.setOnClickListener(v -> {
             //reset photo index if larger than total index of photo
-            if (randInt >= 54){ //total index of photo
+            if (randInt >= 106){ //total index of photo
                 randInt = 0;
             }else{
                 randInt++;
@@ -108,8 +110,13 @@ public class DetailActivity extends AppCompatActivity {
 
             TxtDays.setOnClickListener(v -> Toast.makeText(this, "我们在一起" + DiffDate + "天啦！！" + LoveEyesEmoji, Toast.LENGTH_SHORT).show());
 
-            //conditional set Gif and toast on day 100
-            if(differenceDates == 100){
+            //push hundreds into arraylist for future 100 years
+            for(long i=100; i<=36500; i=i+100){
+                hundreds.add(i);
+            }
+
+            //conditional set Gif and toast each day 100
+            if(hundreds.contains(differenceDates)){
                 TxtDays.setText(LoveEmoji + DiffDate + " days" + LoveEmoji);
 
                 Toast.makeText(this, "我们在一起" + DiffDate + "天啦！！" + LoveEyesEmoji, Toast.LENGTH_LONG).show();
